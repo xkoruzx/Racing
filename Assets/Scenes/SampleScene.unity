@@ -380,6 +380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4daa017439bacc1419ba0eb3da85a3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPos: {x: 283.9, y: 0.5, z: 208}
+  player: {fileID: 7816127360840944680}
   playerPosition: 3
   playerCount: 3
   lapText: {fileID: 779916201}
@@ -1271,7 +1273,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 83.724, y: -648.389}
+  m_AnchoredPosition: {x: 97, y: -652}
   m_SizeDelta: {x: 358.449, y: 286.221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1078305970
@@ -1629,7 +1631,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 3
 --- !u!1 &1265104644
 GameObject:
   m_ObjectHideFlags: 0
@@ -2880,8 +2882,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7816127360840944693}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 285.33, y: 3.1, z: 202.46}
+  m_LocalRotation: {x: 0, y: -0.71263844, z: 0, w: 0.70153147}
+  m_LocalPosition: {x: 283.9, y: 0.5, z: 208}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2890,7 +2892,7 @@ Transform:
   - {fileID: 4593850583716085419}
   - {fileID: 963194228}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.9, z: 0}
 --- !u!54 &7816127360840944683
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3062,7 +3064,7 @@ GameObject:
   - component: {fileID: 7816127360840944690}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3090,6 +3092,7 @@ MonoBehaviour:
     steering: 0
   maxMotorTorque: 500
   maxSteeringAngle: 10
+  frozen: 0
 --- !u!114 &7816127360840944695
 MonoBehaviour:
   m_ObjectHideFlags: 0

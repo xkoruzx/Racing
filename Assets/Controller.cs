@@ -19,13 +19,23 @@ public class Controller : MonoBehaviour
     public List<Axle> axles;
     public float maxMotorTorque;
     public float maxSteeringAngle;
+    public bool frozen = false;
+
     
     public void FixedUpdate()
     {
-        // Get the input for motor torque from the vertical W = Forward S = backward
-        float motor = maxMotorTorque * Input.GetAxis("Vertical");
-        // Get the input forr steering angle from the horizontal A = left D = right
-        float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
+
+        float motor = 0;
+        float steering = 0;
+
+        if (!frozen)
+        {
+            // Get the input for motor torque from the vertical W = Forward S = backward
+            motor = maxMotorTorque * Input.GetAxis("Vertical");
+            // Get the input forr steering angle from the horizontal A = left D = right
+            steering = maxSteeringAngle * Input.GetAxis("Horizontal");
+        }
+      
         
         // Loop Through each axle in the axles list
         foreach (Axle axle in axles)
@@ -43,5 +53,17 @@ public class Controller : MonoBehaviour
                 axle.rightWheel.steerAngle = steering;
             }
         }
+    }
+
+    public void Unfreeze() 
+    {
+
+        frozen = false;
+        
+    }
+
+    public void Freeze() 
+    {
+        frozen = true;
     }
 }
