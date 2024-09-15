@@ -7,6 +7,14 @@ using UnityEngine.UI;
 
 public class GameLogic : MonoBehaviour
 {
+    public Transform[] checkpointArray;
+    public static Transform[] checkpointA;
+
+    public static int currentCheckpoint = 0;
+    public static int currentLap = 0;
+
+    public int Lap;
+    public int MaxLaps = 3;
 
     public Vector3 startPos;
     public Transform player;
@@ -51,7 +59,7 @@ public class GameLogic : MonoBehaviour
         startTiming = true;
         kartScript.Unfreeze();
         startTimerText.text = "Go!!";
-        startTimerText.color = Color.green;
+        startTimerText.color = Color.yellow;
         yield return new WaitForSeconds(1.0f);
         startTimerText.text = "";
     }    
@@ -76,6 +84,34 @@ public class GameLogic : MonoBehaviour
         lapTimerText.text = string.Format("{0:00}:{1:00}.{2:000}", lapTime[0], lapTime[1], lapTime[2]);
         totalTimerText.text = string.Format("{0:00}:{1:00}.{2:000}", totalTime[0], totalTime[1], totalTime[2]);
 
+        //if the current lap is not equal to the lap, we want to reset lapTimer
+        if (currentLap != Lap)
+        {
+            //if the lap is not the very first 0 lap, then reset the lapcount
+            if (Lap != 0)
+            {
+                lapTimeCount = 0.0f;
+            }
+        }
+        //set lap = currentlap so we can run checkpoints again
+        Lap = currentLap;
+        
+        if (Lap > MaxLaps)
+        {
+            this.enabled = false; 
+        }
+
+        //if the lap is the very first one, display it as 1 rather than 0. Else display as lap
+        if (Lap == 0)
+        {
+            lapText.text = "Lap " + (Lap + 1) + " of " + MaxLaps;
+        }
+        else if (Lap <= MaxLaps)
+        {
+            lapText.text = "Lap " + Lap + " of " + MaxLaps;
+        }
+
         positionTextUpper.text = playerPosition.ToString();
+        checkpointA = checkpointArray;
     }
 }
