@@ -117,13 +117,10 @@ public class GameLogic : MonoBehaviour
         }
         //set lap = currentlap so we can run checkpoints again
         Lap = currentLap;
-
-
-        //if the lap is greater than maxLaps we want to stop the code
+        
         if (Lap > MaxLaps)
         {
-            this.enabled = false;
-
+            this.enabled = false; 
         }
 
         //if the lap is the very first one, display it as 1 rather than 0. Else display as lap
@@ -136,7 +133,6 @@ public class GameLogic : MonoBehaviour
             lapText.text = "Lap " + Lap + " of " + MaxLaps;
         }
 
-        //update the player position text and the checkpointA array
         positionTextUpper.text = playerPosition.ToString();
         checkpointA = checkpointArray;
     }
