@@ -23,7 +23,7 @@ public class GameLogic : MonoBehaviour
 
     //starting position and the player
     public Vector3 startPos;
-    public Transform player;
+    public static Transform player; //? this line
 
     //total players and the current player position as an int
     public int playerPosition = 1;
