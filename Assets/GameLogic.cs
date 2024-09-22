@@ -7,16 +7,12 @@ using UnityEngine.UI;
 
 public class GameLogic : MonoBehaviour
 {
-
-    //arrays for the checkpoints
     public Transform[] checkpointArray;
     public static Transform[] checkpointA;
 
-    //current lap and checkpoint variables
     public static int currentCheckpoint = 0;
     public static int currentLap = 0;
 
-    //Lap used for text display and max lap #
     public int Lap;
     public int MaxLaps = 3;
 
@@ -80,7 +76,7 @@ public class GameLogic : MonoBehaviour
         startTiming = true;
         kartScript.Unfreeze();
         startTimerText.text = "Go!!";
-        startTimerText.color = Color.green;
+        startTimerText.color = Color.yellow;
         yield return new WaitForSeconds(1.0f);
         startTimerText.text = "";
     }    
